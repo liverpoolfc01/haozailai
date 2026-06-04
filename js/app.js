@@ -99,38 +99,25 @@ function pcard(p){
 
 // ==================== HOME ====================
 function renderHome(){
-  const {banners}=DATA;
-  const bi=banners.map((b,i)=>`<div class="banner-slide ${i===0?'active':''}" style="background:${b.color}"><h1>${b.text}</h1><p>${b.sub}</p></div>`).join('');
-  const bd=banners.map((_,i)=>`<span class="banner-dot ${i===0?'active':''}" data-i="${i}"></span>`).join('');
-
   // Featured sections
-  const best = P.filter(p=>p.tag==='Best Seller').slice(0,10);
-  const digital = P.filter(p=>p.cat==='数码').slice(0,10);
-  const beauty = P.filter(p=>p.cat==='美妆').slice(0,10);
-  const food = P.filter(p=>p.cat==='美食').slice(0,10);
+  const best = P.filter(p=>p.tag==='Best Seller').slice(0,15);
+  const digital = P.filter(p=>p.cat==='数码').slice(0,12);
+  const beauty = P.filter(p=>p.cat==='美妆').slice(0,12);
+  const food = P.filter(p=>p.cat==='美食').slice(0,12);
+  const clothing = P.filter(p=>p.cat==='服饰').slice(0,12);
+  const home = P.filter(p=>p.cat==='家居').slice(0,12);
 
   const sec = (title,link,items)=>`<div class="sec-header"><h2>${title}</h2><a href="javascript:;" onclick="navigate('${link}')">查看更多 →</a></div><div class="p-grid">${items.map(p=>pcard(p)).join('')}</div>`;
 
   const html = `
-    <div class="banner" id="banner">${bi}<div class="banner-dots">${bd}</div></div>
     ${sec('🔥 Best Seller 热销爆款','list&sort=sales',best)}
     ${sec('📱 数码尖货','list&cat=数码',digital)}
-    <div style="background:linear-gradient(135deg,#146eb4,#232f3e);border-radius:8px;padding:24px;text-align:center;margin:16px 0;color:#fff">
-      <h2 style="font-size:24px;font-weight:700">🍬 好再来 Prime 会员</h2>
-      <p style="font-size:16px;margin:8px 0">免费配送 · 专属折扣 · 无限畅享</p>
-      <a href="javascript:;" style="display:inline-block;padding:8px 28px;background:var(--gold);color:var(--dark);border-radius:20px;font-weight:700" onclick="msg('Prime 30天免费试用已开通！','🎉')">立即开通 30天免费试用</a>
-    </div>
+    ${sec('👗 时尚服饰','list&cat=服饰',clothing)}
+    ${sec('🏠 品质家居','list&cat=家居',home)}
     ${sec('💄 美妆护肤','list&cat=美妆',beauty)}
     ${sec('🍪 美食天地','list&cat=美食',food)}
   `;
   $('app').innerHTML = html;
-
-  // Banner
-  let bii=0,bt=null;
-  const sl=document.querySelectorAll('.banner-slide'),dt=document.querySelectorAll('.banner-dot');
-  function bg(i){sl.forEach(s=>s.classList.remove('active'));dt.forEach(d=>d.classList.remove('active'));bii=(i+sl.length)%sl.length;sl[bii]?.classList.add('active');dt[bii]?.classList.add('active');}
-  dt.forEach(d=>d.addEventListener('click',()=>bg(parseInt(d.dataset.i))));
-  clearInterval(bt);bt=setInterval(()=>bg(bii+1),4000);
 }
 
 // ==================== LIST ====================

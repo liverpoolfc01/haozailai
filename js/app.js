@@ -1,5 +1,5 @@
 // ================================================
-// SweetMart 🍬 - Amazon Style App
+// 好再来 🍬 - Amazon Style App
 // ================================================
 
 // ----- STATE -----
@@ -12,9 +12,9 @@ let tt = null;
 function msg(t, e=''){toast.textContent=(e?e+' ':'')+t;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2500);}
 
 function loadS(){
-  try{const s=JSON.parse(localStorage.getItem('sm_state'));if(s){if(s.cart)S.cart=s.cart;if(s.fav)S.fav=s.fav;if(s.user)S.user=s.user;}}catch(e){}
+  try{const s=JSON.parse(localStorage.getItem('hz_state'));if(s){if(s.cart)S.cart=s.cart;if(s.fav)S.fav=s.fav;if(s.user)S.user=s.user;}}catch(e){}
 }
-function saveS(){localStorage.setItem('sm_state',JSON.stringify({cart:S.cart,fav:S.fav,user:S.user}));}
+function saveS(){localStorage.setItem('hz_state',JSON.stringify({cart:S.cart,fav:S.fav,user:S.user}));}
 loadS();
 
 function gp(id){return P.find(p=>p.id===id);}
@@ -116,7 +116,7 @@ function renderHome(){
     ${sec('🔥 Best Seller 热销爆款','list&sort=sales',best)}
     ${sec('📱 数码尖货','list&cat=数码',digital)}
     <div style="background:linear-gradient(135deg,#146eb4,#232f3e);border-radius:8px;padding:24px;text-align:center;margin:16px 0;color:#fff">
-      <h2 style="font-size:24px;font-weight:700">🍬 SweetMart Prime 会员</h2>
+      <h2 style="font-size:24px;font-weight:700">🍬 好再来 Prime 会员</h2>
       <p style="font-size:16px;margin:8px 0">免费配送 · 专属折扣 · 无限畅享</p>
       <a href="javascript:;" style="display:inline-block;padding:8px 28px;background:var(--gold);color:var(--dark);border-radius:20px;font-weight:700" onclick="msg('Prime 30天免费试用已开通！','🎉')">立即开通 30天免费试用</a>
     </div>

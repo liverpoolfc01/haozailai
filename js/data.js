@@ -1,5 +1,5 @@
 // ================================================
-// SweetMart 🍬 - 商品数据 (150+ 全球好物)
+// 好再来 🍬 - 商品数据 (150+ 全球好物)
 // ================================================
 
 const DATA = {
@@ -7,20 +7,20 @@ const DATA = {
   banners: [
     { text:'Prime Day 会员日', sub:'全场低至5折 · 限时2天', color:'#232f3e' },
     { text:'Kindle 阅读器特惠', sub:'沉浸阅读 · 低至499元起', color:'#ff9900' },
-    { text:'SweetMart 全球购', sub:'海外直邮 · 正品保障', color:'#146eb4' },
+    { text:'好再来 全球购', sub:'海外直邮 · 正品保障', color:'#146eb4' },
   ],
 
   // ---------- 用户 ----------
   defaultUser: {
     name:'demo', pass:'123456', nickname:'甜甜', avatar:'😊',
-    phone:'138****8888', addr:'上海市甜玛特路1号',
+    phone:'138****8888', addr:'上海市好再来路1号',
     orders:[
-      { id:'SM20260601001', date:'2026-06-01', items:[{id:1,name:'Sony WH-1000XM5',emoji:'🎧',price:2499,qty:1}], total:2499, status:'已送达', addr:'上海市甜玛特路1号' },
-      { id:'SM20260528002', date:'2026-05-28', items:[{id:101,name:'SK-II 神仙水',emoji:'🧴',price:1590,qty:1},{id:135,name:'Dior 999口红',emoji:'💄',price:359,qty:1}], total:1949, status:'配送中', addr:'上海市甜玛特路1号' },
-      { id:'SM20260520003', date:'2026-05-20', items:[{id:52,name:'三只松鼠每日坚果',emoji:'🥜',price:79,qty:3}], total:237, status:'已送达', addr:'上海市甜玛特路1号' },
-      { id:'SM20260515004', date:'2026-05-15', items:[{id:40,name:'飞利浦台灯',emoji:'💡',price:399,qty:1},{id:68,name:'苏泊尔锅',emoji:'🍳',price:399,qty:1}], total:798, status:'已送达', addr:'上海市甜玛特路1号' },
+      { id:'HZ20260601001', date:'2026-06-01', items:[{id:1,name:'Sony WH-1000XM5',emoji:'🎧',price:2499,qty:1}], total:2499, status:'已送达', addr:'上海市好再来路1号' },
+      { id:'HZ20260528002', date:'2026-05-28', items:[{id:101,name:'SK-II 神仙水',emoji:'🧴',price:1590,qty:1},{id:135,name:'Dior 999口红',emoji:'💄',price:359,qty:1}], total:1949, status:'配送中', addr:'上海市好再来路1号' },
+      { id:'HZ20260520003', date:'2026-05-20', items:[{id:52,name:'三只松鼠每日坚果',emoji:'🥜',price:79,qty:3}], total:237, status:'已送达', addr:'上海市好再来路1号' },
+      { id:'HZ20260515004', date:'2026-05-15', items:[{id:40,name:'飞利浦台灯',emoji:'💡',price:399,qty:1},{id:68,name:'苏泊尔锅',emoji:'🍳',price:399,qty:1}], total:798, status:'已送达', addr:'上海市好再来路1号' },
     ],
-    addrs:[{name:'小甜甜',phone:'138****8888',addr:'上海市甜玛特路1号',def:true},{name:'老大',phone:'139****9999',addr:'北京市朝阳区幸福街100号',def:false}],
+    addrs:[{name:'小甜甜',phone:'138****8888',addr:'上海市好再来路1号',def:true},{name:'老大',phone:'139****9999',addr:'北京市朝阳区幸福街100号',def:false}],
     favs:[1,5,27,52,71,74,101,112]
   }
 };

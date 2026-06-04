@@ -162,7 +162,7 @@ function renderHome() {
     return `<div class="flash-item" onclick="navigate('detail&id=${p.id}')"><span class="emoji">${p.emoji}</span><div class="name">${p.name}</div><div><span class="price">${formatPrice(p.price)}</span><span class="original">${formatPrice(p.original)}</span></div><div class="flash-progress"><div class="flash-progress-bar" style="width:${pct}%"></div></div></div>`;
   }).join('');
 
-  const featured = SHOP_DATA.products.slice(0, 10);
+  const featured = SHOP_DATA.products.slice(0, 15);
 
   const html = `
     <div class="home-banner">
@@ -274,8 +274,8 @@ function renderList(page) {
   else if (sort === 'sales') filtered.sort((a,b) => b.sales - a.sales);
   else if (sort === 'rating') filtered.sort((a,b) => b.rating - a.rating);
 
-  const cats = ['数码','服饰','家居','美食'];
-  const subs = ['耳机','手表','音箱','手机','上衣','包','帽子','配饰','灯具','香薰','餐具','装饰','零食','咖啡','糕点'];
+  const cats = ['数码','服饰','家居','美食','美妆'];
+  const subs = ['耳机','手机','平板','手表','外设','配件','相机','上衣','下装','鞋','包','配饰','帽子','灯具','床品','厨房','香薰','装饰','拖鞋','零食','糕点','咖啡','茶','冲饮','酒','生鲜','护肤','彩妆'];
 
   const catOpts = cats.map(c => `<a href="javascript:;" class="${c===cat?'active':''}" onclick="navigate('list&cat=${c}')">${c}</a>`).join('');
   const subOpts = subs.map(s => `<a href="javascript:;" class="${s===sub?'active':''}" onclick="navigate('list&cat=${cat}&sub=${s}')">${s}</a>`).join('');
@@ -682,7 +682,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   searchBtn.addEventListener('click', () => {
     const q = searchInput.value.trim();
-    if (q) navigate('search&q=' + encodeURIComponent(q));
+    if (q) {
+      const catParam = state.searchCat ? '&cat=' + encodeURIComponent(state.searchCat) : '';
+      navigate('search&q=' + encodeURIComponent(q) + catParam);
+    }
   });
   searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') searchBtn.click();
